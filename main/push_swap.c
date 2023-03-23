@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 22:01:19 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/03/23 08:48:57 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/03/23 21:21:56 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int ac, char **av)
 	stack_a = NULL;
 	stack_b = NULL;
 	m.sb_n = 0;
-	m.ch_status = 1;
+	m.ch_status = 0;
 	if (ac < 2)
 		return (0);
 	read_input(&stack_a, av, &m);
@@ -31,8 +31,6 @@ int	main(int ac, char **av)
 	printf("stack_b\n");
 	print_list(stack_b);
 	printf("--------------------------------\n");
-	operation(&stack_a, &stack_b, &m, "pb");
-	operation(&stack_a, &stack_b, &m, "pb");
 	operation(&stack_a, &stack_b, &m, "rb");
 	printf("--------------------------------\n");
 	printf("stack_a\n");

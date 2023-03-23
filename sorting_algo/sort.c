@@ -6,8 +6,15 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 06:14:22 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/03/23 06:58:26 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/03/23 21:34:07 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
+
+small_sort(t_list **stack_a, t_list **stack_b, t_vars *m)
+{
+    int i;
+
+    if((*stack_a))
+}

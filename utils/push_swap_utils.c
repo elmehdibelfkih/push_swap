@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 10:58:58 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/03/23 09:03:12 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/03/23 21:49:48 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@ void	exit_message(int i, t_list **stack)
 {
 	char	**message;
 
-	message = malloc(9 * sizeof(char *));
-	message[0] = ft_strdup("is not digit");
-	message[1] = ft_strdup("duplicate founded !");
-	message[2] = ft_strdup("sorted !!");
-	message[3] = NULL;
+	message = malloc(5 * sizeof(char *));
+	message[0] = ft_strdup("Is not digit\n");
+	message[1] = ft_strdup("Duplicate founded !\n");
+	message[2] = ft_strdup("Sorted !!\n");
+	message[3] = ft_strdup("Error\n");
+	message[4] = NULL;
 	write(1, message[i], strlen(message[i]));
 	ft_lstclear(stack);
 	ft_clear(message, 3);
@@ -96,6 +97,8 @@ void	operation(t_list **stack_a, t_list **stack_b, t_vars *m, char *s)
 		reverse_rotate(stack_a, stack_b, m, 9);
 	else if (ft_strncmp(s, "rrr", 5))
 		reverse_rotate(stack_a, stack_b, m, 10);
+	else
+		exit_message(3, stack_a);
 	return ;
 }
 
