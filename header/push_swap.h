@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 22:04:10 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/03/23 07:17:09 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/03/23 09:14:52 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,12 @@ typedef struct s_list {
 typedef struct s_vars {
 	int	sa_n;
 	int	sb_n;
+	int	ch_status;
+	int	c;
+	int	f;
 	int	i;
 	int	j;
-	int	c;
 	int	n;
-	int	m;
-	int	p;
-	int	f;
 }				t_vars;
 
 void	exit_message(int i, t_list **stack);
@@ -70,9 +69,14 @@ void	rotate(t_list **stack_a, t_list **stack_b, t_vars *m, int i);
 void	reverse_rotate(t_list **stack_a, t_list **stack_b, t_vars *m, int i);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	operation(t_list **stack_a, t_list **stack_b, t_vars *m, char *s);
-void	is_sorted(t_list **stack_a, t_vars *m);
+int		is_sorted(t_list **stack_a, t_vars *m);
 char	*get_next_line(int fd);
 char	*ft_strjoin(char *s1, char *s2);
+int		ft_is_first(char const *s1, char const *set);
+int		ft_is_last(char const *s1, char const *set);
+char	*ft_strtrim(char const *s1, char const *set);
+char	*ft_strchrp(const char *s, int c);
+void	checker_read_input(t_list **stack_a, t_list **stack_b, t_vars *m);
 
 void	print_list(t_list *stack);
 

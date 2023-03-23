@@ -6,33 +6,32 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 07:20:18 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/03/23 07:22:30 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/03/23 09:33:18 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
 
-void	checker_read_input(char **argv, int argc, )
+void	checker_read_input(t_list **stack_a, t_list **stack_b, t_vars *m)
 {
 	char	*s;
 	char	*c;
-	int		fd;
-	c = ft_strjoin(argv[2], "\n");
-	if (argc <= 5)
-		exit_message (0, vars);
-	fd = open("here_doc", O_RDWR | O_CREAT | O_TRUNC, 0777);
+
 	s = get_next_line(0);
-	while (s && !ft_strncmp(s, c, ft_strlen(c)))
+	c = ft_strtrim(s, "\n");
+	while (s)
 	{
-		write(fd, s, ft_strlen(s));
+		operation(stack_a, stack_b, m, c);
 		free(s);
+		free(c);
 		s = get_next_line(0);
+		c = ft_strtrim(s, "\n");
 	}
-	parsing_args(vars, argv + 1, argc - 1);
-	vars->input = strdup("here_doc");
-	vars->here_doc_status = 1;
+	print_list(*stack_a);
+	if (is_sorted(stack_a, m) == 1 && m->sb_n == 0)
+		write(1, "ok\n", 4);
+	else
+		write(1, "ko\n", 4);
+	print_list(*stack_a);
 	return (free(s), free(c));
-	parsing_args(vars, argv, argc);
-	vars->here_doc_status = 0;
-	return ;
 }

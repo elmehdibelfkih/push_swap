@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 10:58:58 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/03/23 07:00:02 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/03/23 09:03:12 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void	print_operation(int i)
 	operation[10] = ft_strdup("rrr");
 	operation[11] = NULL;
 	write(1, operation[i], strlen(operation[i]));
-	ft_clear(operation, 10);
 	write(1, "\n", 1);
+	ft_clear(operation, 10);
 }
 
 void	print_list(t_list *stack)
@@ -99,18 +99,18 @@ void	operation(t_list **stack_a, t_list **stack_b, t_vars *m, char *s)
 	return ;
 }
 
-void	is_sorted(t_list **stack_a, t_vars *m)
+int	is_sorted(t_list **stack_a, t_vars *m)
 {
 	t_list	*tmp;
 
 	tmp = *stack_a;
 	if (m->sb_n != 0)
-		return ;
+		return (-1);
 	while (tmp)
 	{
 		if (tmp->final_pos != tmp->pos)
-			return ;
+			return (-1);
 		tmp = tmp->next;
 	}
-	exit_message(2, stack_a);
+	return (1);
 }
