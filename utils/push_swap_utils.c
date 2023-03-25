@@ -6,13 +6,13 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 10:58:58 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/03/23 21:49:48 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/03/24 04:19:39 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
 
-void	exit_message(int i, t_list **stack)
+void	exit_message(int i, t_list **stack_a, t_list **stack_b)
 {
 	char	**message;
 
@@ -23,7 +23,10 @@ void	exit_message(int i, t_list **stack)
 	message[3] = ft_strdup("Error\n");
 	message[4] = NULL;
 	write(1, message[i], strlen(message[i]));
-	ft_lstclear(stack);
+	if (stack_a)
+		ft_lstclear(stack_a);
+	if (stack_b)
+		ft_lstclear(stack_b);
 	ft_clear(message, 3);
 	exit(0);
 }
@@ -98,7 +101,7 @@ void	operation(t_list **stack_a, t_list **stack_b, t_vars *m, char *s)
 	else if (ft_strncmp(s, "rrr", 5))
 		reverse_rotate(stack_a, stack_b, m, 10);
 	else
-		exit_message(3, stack_a);
+		exit_message(3, stack_a, stack_b);
 	return ;
 }
 

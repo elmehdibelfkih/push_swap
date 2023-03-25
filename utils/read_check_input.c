@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 22:00:53 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/03/23 09:11:41 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/03/24 04:20:40 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	read_input(t_list **stack_a, char **av, t_vars *m)
 	while (av[++m->n])
 	{
 		t = ft_split(av[m->n], ' ');
+		if (!t[0])
+				exit_message(3, stack_a, NULL);
 		m->i = -1;
 		while (t[++m->i])
 		{
@@ -30,14 +32,13 @@ void	read_input(t_list **stack_a, char **av, t_vars *m)
 				if (m->j == 0 && (t[m->i][m->j] == '-' || t[m->i][m->j] == '+'))
 					m->j++;
 				if (!ft_isdigit(t[m->i][m->j]))
-					exit_message(0, stack_a);
+					exit_message(0, stack_a, NULL);
 			}
 			ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(t[m->i]), ++m->sa_n));
 		}
 		ft_clear(t, m->i);
 	}
-	check_duplicate(stack_a);
-	return ;
+	return (check_duplicate(stack_a));
 }
 
 void	check_duplicate(t_list **stack_a)
@@ -52,7 +53,7 @@ void	check_duplicate(t_list **stack_a)
 		while (y)
 		{
 			if (y->content == x->content)
-				exit_message(1, stack_a);
+				exit_message(1, stack_a, NULL);
 			y = y->next;
 		}
 		x = x->next;

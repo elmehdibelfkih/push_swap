@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 22:01:19 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/03/23 21:21:56 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/03/25 01:25:49 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int ac, char **av)
 	printf("stack_b\n");
 	print_list(stack_b);
 	printf("--------------------------------\n");
-	operation(&stack_a, &stack_b, &m, "rb");
+	operation(&stack_a, &stack_b, &m, "rrr");
 	printf("--------------------------------\n");
 	printf("stack_a\n");
 	print_list(stack_a);

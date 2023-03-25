@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 22:04:10 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/03/23 09:14:52 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/03/24 04:17:36 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct s_vars {
 	int	n;
 }				t_vars;
 
-void	exit_message(int i, t_list **stack);
+void	exit_message(int i, t_list **stack, t_list **stack_b);
 t_list	*ft_lstnew(int i, int initial_pos);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
