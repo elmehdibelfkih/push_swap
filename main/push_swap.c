@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 22:01:19 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/03/25 01:25:49 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/03/26 08:35:28 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,26 @@ int	main(int ac, char **av)
 	stack_b = NULL;
 	m.sb_n = 0;
 	m.ch_status = 0;
-	if (ac < 2)
+	if (ac < 3)
 		return (0);
 	read_input(&stack_a, av, &m);
-	final_pos(stack_a);
-	printf("stack_a\n");
-	print_list(stack_a);
-	printf("stack_b\n");
-	print_list(stack_b);
-	printf("--------------------------------\n");
-	operation(&stack_a, &stack_b, &m, "rrr");
-	printf("--------------------------------\n");
-	printf("stack_a\n");
-	print_list(stack_a);
-	printf("stack_b\n");
-	print_list(stack_b);
-	printf("--------------------------------\n");
+	if (is_sorted(&stack_a, &m) == 1)
+		exit_message(2, &stack_a, &stack_b);
+	// printf("stack_a\n");
+	// print_list(stack_a);
+	// printf("stack_b\n");
+	// print_list(stack_b);
+	// printf("--------------------------------\n");
+	small_sort(&stack_a, &stack_b, &m);
+	// operation(&stack_a, &stack_b, &m, "pb");
+	// printf("%d\n", m.sa_n);
+	// operation(&stack_a, &stack_b, &m, "pb");
+	// operation(&stack_a, &stack_b, &m, "pa");
+	// operation(&stack_a, &stack_b, &m, "pa");
+	// printf("--------------------------------\n");
+	// printf("stack_a\n");
+	// print_list(stack_a);
+	// printf("stack_b\n");
+	// print_list(stack_b);
+	// printf("--------------------------------\n");
 }

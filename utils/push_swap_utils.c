@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 10:58:58 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/03/24 04:19:39 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/03/26 08:43:18 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,19 @@ void	print_operation(int i)
 	char	**operation;
 
 	operation = malloc(12 * sizeof(char *));
-	operation[0] = ft_strdup("sa");
-	operation[1] = ft_strdup("sb");
-	operation[2] = ft_strdup("ss");
-	operation[3] = ft_strdup("pa");
-	operation[4] = ft_strdup("pb");
-	operation[5] = ft_strdup("ra");
-	operation[6] = ft_strdup("rb");
-	operation[7] = ft_strdup("rr");
-	operation[8] = ft_strdup("rra");
-	operation[9] = ft_strdup("rrb");
-	operation[10] = ft_strdup("rrr");
+	operation[0] = ft_strdup("sa\n");
+	operation[1] = ft_strdup("sb\n");
+	operation[2] = ft_strdup("ss\n");
+	operation[3] = ft_strdup("pa\n");
+	operation[4] = ft_strdup("pb\n");
+	operation[5] = ft_strdup("ra\n");
+	operation[6] = ft_strdup("rb\n");
+	operation[7] = ft_strdup("rr\n");
+	operation[8] = ft_strdup("rr\na\n");
+	operation[9] = ft_strdup("rrb\n");
+	operation[10] = ft_strdup("rrr\n");
 	operation[11] = NULL;
 	write(1, operation[i], strlen(operation[i]));
-	write(1, "\n", 1);
 	ft_clear(operation, 10);
 }
 

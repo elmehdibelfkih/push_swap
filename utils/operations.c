@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 05:33:33 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/03/23 08:45:51 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/03/26 08:45:09 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ void	push(t_list **stack_a, t_list **stack_b, t_vars *m, int i)
 		ft_lstadd_front(stack_b, tmp);
 		m->sa_n--;
 		m->sb_n++;
+		if (m->ch_status == 0)
+			print_operation(i);
 	}
 	else if (i == 3 && m->sb_n > 0)
 	{
@@ -63,11 +65,10 @@ void	push(t_list **stack_a, t_list **stack_b, t_vars *m, int i)
 		ft_lstadd_front(stack_a, tmp);
 		m->sa_n++;
 		m->sb_n--;
+		if (m->ch_status == 0)
+			print_operation(i);
 	}
-	if (m->ch_status == 0)
-		print_operation(i);
-	edit_pos(*stack_a, *stack_b);
-	return ;
+	return(edit_pos(*stack_a, *stack_b));
 }
 
 void	rotate(t_list **stack_a, t_list **stack_b, t_vars *m, int i)

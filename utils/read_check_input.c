@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 22:00:53 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/03/24 04:20:40 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/03/25 05:25:26 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	read_input(t_list **stack_a, char **av, t_vars *m)
 		}
 		ft_clear(t, m->i);
 	}
-	return (check_duplicate(stack_a));
+	return (check_duplicate(stack_a), final_pos(*stack_a));
 }
 
 void	check_duplicate(t_list **stack_a)
