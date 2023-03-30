@@ -68,7 +68,7 @@ void	push(t_list **stack_a, t_list **stack_b, t_vars *m, int i)
 		if (m->ch_status == 0)
 			print_operation(i);
 	}
-	return(edit_pos(*stack_a, *stack_b));
+	return (edit_pos(*stack_a, *stack_b));
 }
 
 void	rotate(t_list **stack_a, t_list **stack_b, t_vars *m, int i)

@@ -27,7 +27,7 @@ void	checker_read_input(t_list **stack_a, t_list **stack_b, t_vars *m)
 		s = get_next_line(0);
 		c = ft_strtrim(s, "\n");
 	}
-	if (is_sorted(stack_a, m) == 1 && m->sb_n == 0)
+	if (is_sorted(stack_a, m) == 1)
 		write(1, "ok\n", 4);
 	else
 		write(1, "ko\n", 4);

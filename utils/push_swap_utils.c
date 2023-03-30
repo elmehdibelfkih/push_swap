@@ -44,7 +44,7 @@ void	print_operation(int i)
 	operation[5] = ft_strdup("ra\n");
 	operation[6] = ft_strdup("rb\n");
 	operation[7] = ft_strdup("rr\n");
-	operation[8] = ft_strdup("rr\na\n");
+	operation[8] = ft_strdup("rra\n");
 	operation[9] = ft_strdup("rrb\n");
 	operation[10] = ft_strdup("rrr\n");
 	operation[11] = NULL;

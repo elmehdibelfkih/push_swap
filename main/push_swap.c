@@ -27,18 +27,11 @@ int	main(int ac, char **av)
 	read_input(&stack_a, av, &m);
 	if (is_sorted(&stack_a, &m) == 1)
 		exit_message(2, &stack_a, &stack_b);
-	// printf("stack_a\n");
-	// print_list(stack_a);
-	// printf("stack_b\n");
-	// print_list(stack_b);
-	// printf("--------------------------------\n");
-	small_sort(&stack_a, &stack_b, &m);
-	// operation(&stack_a, &stack_b, &m, "pb");
-	// printf("%d\n", m.sa_n);
-	// printf("--------------------------------\n");
-	// printf("stack_a\n");
-	// print_list(stack_a);
-	// printf("stack_b\n");
-	// print_list(stack_b);
-	// printf("--------------------------------\n");
+	small_sort_3(&stack_a, &stack_b, &m);
 }
+	// printf("--------------------------------\n");
+	// printf("stack_a\n");
+	// print_list(stack_a);
+	// printf("stack_b\n");
+	// print_list(stack_b);
+	// printf("--------------------------------\n");

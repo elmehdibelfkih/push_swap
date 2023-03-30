@@ -21,6 +21,8 @@ int	main(int ac, char **av)
 	stack_a = NULL;
 	stack_b = NULL;
 	m.ch_status = 1;
+	m.sa_n = 0;
+	m.sb_n = 0;
 	if (ac < 2)
 		return (0);
 	read_input(&stack_a, av, &m);

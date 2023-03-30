@@ -22,7 +22,7 @@ void	read_input(t_list **stack_a, char **av, t_vars *m)
 	{
 		t = ft_split(av[m->n], ' ');
 		if (!t[0])
-				exit_message(3, stack_a, NULL);
+			exit_message(3, stack_a, NULL);
 		m->i = -1;
 		while (t[++m->i])
 		{

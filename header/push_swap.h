@@ -77,11 +77,10 @@ int		ft_is_last(char const *s1, char const *set);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_strchrp(const char *s, int c);
 void	checker_read_input(t_list **stack_a, t_list **stack_b, t_vars *m);
-void    small_sort_3(t_list **stack_a, t_list **stack_b,t_vars *m);
-void    small_sort_4(t_list **stack_a, t_list **stack_b,t_vars *m);
-void    small_sort_5(t_list **stack_a, t_list **stack_b,t_vars *m);
-void    small_sort(t_list **stack_a, t_list **stack_b,t_vars *m);
-
+void	small_sort_3(t_list **stack_a, t_list **stack_b, t_vars *m);
+void	small_sort_4(t_list **stack_a, t_list **stack_b, t_vars *m);
+void	small_sort_5(t_list **stack_a, t_list **stack_b, t_vars *m);
+void	small_sort(t_list **stack_a, t_list **stack_b, t_vars *m);
 void	print_list(t_list *stack);
 
 #endif

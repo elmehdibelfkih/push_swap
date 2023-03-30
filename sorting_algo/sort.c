@@ -12,34 +12,33 @@
 
 #include "../header/push_swap.h"
 
-void    small_sort_3(t_list **stack_a, t_list **stack_b,t_vars *m)
+void	small_sort_3(t_list **stack_a, t_list **stack_b, t_vars *m)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	tmp = *stack_a;
-
-	if(tmp->final_pos == 1 && tmp->next->final_pos == 3)
+	if (tmp->final_pos == 1 && tmp->next->final_pos == 3)
 	{
 		operation(stack_a, stack_b, m, "rra");
 		operation(stack_a, stack_b, m, "sa");
 	}
-	else if(tmp->final_pos == 2 && tmp->next->final_pos == 1)
+	else if (tmp->final_pos == 2 && tmp->next->final_pos == 1)
 		operation(stack_a, stack_b, m, "sa");
-	else if(tmp->final_pos == 2 && tmp->next->final_pos == 3)
+	else if (tmp->final_pos == 2 && tmp->next->final_pos == 3)
 		operation(stack_a, stack_b, m, "rra");
-	else if(tmp->final_pos == 3 && tmp->next->final_pos == 2)
+	else if (tmp->final_pos == 3 && tmp->next->final_pos == 2)
 	{
 		operation(stack_a, stack_b, m, "sa");
 		operation(stack_a, stack_b, m, "rra");
 	}
-	else if(tmp->final_pos == 3 && tmp->next->final_pos == 1)
+	else if (tmp->final_pos == 3 && tmp->next->final_pos == 1)
 		operation(stack_a, stack_b, m, "ra");
 	return ;
 }
 
-void    small_sort_4(t_list **stack_a, t_list **stack_b,t_vars *m)
+void	small_sort_4(t_list **stack_a, t_list **stack_b, t_vars *m)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	tmp = *stack_a;
 	while (tmp)
@@ -51,21 +50,22 @@ void    small_sort_4(t_list **stack_a, t_list **stack_b,t_vars *m)
 			else if (tmp->pos == 3)
 			{
 				operation(stack_a, stack_b, m, "rra");
-				operation(stack_a, stack_b, m, "rra"); 
+				operation(stack_a, stack_b, m, "rra");
 			}
 			else if (tmp->pos == 4)
-				operation(stack_a, stack_b, m, "rra");   
+				operation(stack_a, stack_b, m, "rra");
 		}
 		tmp = tmp->next;
 	}
 	operation(stack_a, stack_b, m, "pb");
 	small_sort_3(stack_a, stack_b, m);
-	return (operation(stack_a, stack_b, m, "pa"), operation(stack_a, stack_b, m, "ra"));
+	return (operation(stack_a, stack_b, m, "pa"),
+		operation(stack_a, stack_b, m, "ra"));
 }
 
-void    small_sort_5(t_list **stack_a, t_list **stack_b,t_vars *m)
+void	small_sort_5(t_list **stack_a, t_list **stack_b, t_vars *m)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	tmp = *stack_a;
 	while (tmp)
@@ -75,28 +75,29 @@ void    small_sort_5(t_list **stack_a, t_list **stack_b,t_vars *m)
 			if (tmp->pos == 2)
 				operation(stack_a, stack_b, m, "sa");
 			else if (tmp->pos == 3)
-			{ 
+			{
 				operation(stack_a, stack_b, m, "ra");
-				operation(stack_a, stack_b, m, "sa"); 
+				operation(stack_a, stack_b, m, "sa");
 			}
 			else if (tmp->pos == 4)
 			{
 				operation(stack_a, stack_b, m, "rra");
-				operation(stack_a, stack_b, m, "rra");    
+				operation(stack_a, stack_b, m, "rra");
 			}
 			else if (tmp->pos == 5)
-				operation(stack_a, stack_b, m, "rra"); 
+				operation(stack_a, stack_b, m, "rra");
 		}
 		tmp = tmp->next;
 	}
 	operation(stack_a, stack_b, m, "pb");
 	small_sort_4(stack_a, stack_b, m);
-	return (operation(stack_a, stack_b, m, "pa"), operation(stack_a, stack_b, m, "ra"));
+	return (operation(stack_a, stack_b, m, "pa"),
+		operation(stack_a, stack_b, m, "ra"));
 }
 
-void    small_sort(t_list **stack_a, t_list **stack_b,t_vars *m)
+void	small_sort(t_list **stack_a, t_list **stack_b, t_vars *m)
 {
-	int     i;
+	int	i;
 
 	i = m->sa_n + 1;
 	while (*stack_a)
@@ -107,8 +108,6 @@ void    small_sort(t_list **stack_a, t_list **stack_b,t_vars *m)
 			operation(stack_a, stack_b, m, "pb");
 	}
 	while (*stack_b)
-	{
 		operation(stack_a, stack_b, m, "pa");
-	}
 	return ;
 }
