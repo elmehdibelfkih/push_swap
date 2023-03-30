@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 22:01:19 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/03/26 08:35:28 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/03/29 15:30:44 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,6 @@ int	main(int ac, char **av)
 	small_sort(&stack_a, &stack_b, &m);
 	// operation(&stack_a, &stack_b, &m, "pb");
 	// printf("%d\n", m.sa_n);
-	// operation(&stack_a, &stack_b, &m, "pb");
-	// operation(&stack_a, &stack_b, &m, "pa");
-	// operation(&stack_a, &stack_b, &m, "pa");
 	// printf("--------------------------------\n");
 	// printf("stack_a\n");
 	// print_list(stack_a);
