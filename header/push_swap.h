@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 22:04:10 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/03/26 08:00:25 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/04/03 00:59:23 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ typedef struct s_vars {
 	int	sa_n;
 	int	sb_n;
 	int	ch_status;
+	int	n_of_shunks;
+	int	shunk_size;
+	int	shunk_n;
 	int	c;
 	int	f;
 	int	i;
@@ -82,5 +85,6 @@ void	small_sort_4(t_list **stack_a, t_list **stack_b, t_vars *m);
 void	small_sort_5(t_list **stack_a, t_list **stack_b, t_vars *m);
 void	small_sort(t_list **stack_a, t_list **stack_b, t_vars *m);
 void	print_list(t_list *stack);
-
+void	n_of_shunks(t_vars *m);
+int	node_pose(t_list **stack_a, t_vars *m, int j);
 #endif

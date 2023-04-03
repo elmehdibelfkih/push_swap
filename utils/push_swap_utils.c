@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 10:58:58 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/03/26 08:43:18 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/04/03 00:44:19 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	print_operation(int i)
 	operation[11] = NULL;
 	write(1, operation[i], strlen(operation[i]));
 	ft_clear(operation, 10);
+	return ;
 }
 
 void	print_list(t_list *stack)
@@ -59,6 +60,7 @@ void	print_list(t_list *stack)
 		printf("%d  : %d  : %d\n", stack->content, stack->final_pos, stack->pos);
 		stack = stack->next;
 	}
+	return ;
 }
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)

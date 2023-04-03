@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 07:20:18 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/03/25 06:04:41 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/04/03 00:49:58 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	checker_read_input(t_list **stack_a, t_list **stack_b, t_vars *m)
 		c = ft_strtrim(s, "\n");
 	}
 	if (is_sorted(stack_a, m) == 1)
-		write(1, "ok\n", 4);
+		write(1, "OK !\n", 6);
 	else
-		write(1, "ko\n", 4);
+		write(1, "KO !\n", 6);
 	return (free(s), free(c));
 }

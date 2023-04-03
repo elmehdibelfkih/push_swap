@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 06:36:28 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/03/23 07:14:02 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/04/03 00:42:32 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void	buffer_plen(char **buffer, char **s1, int *r, int fd)
 		free (*s1);
 		*s1 = NULL;
 	}
+	return ;
 }
 
 char	*get_next_line(int fd)

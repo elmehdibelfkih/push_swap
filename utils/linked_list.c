@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 20:34:35 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/02/22 06:29:27 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/04/03 00:43:18 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		p = ft_lstlast(*lst);
 		p->next = new;
 	}
+	return ;
 }
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
@@ -49,6 +50,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 		return ;
 	new->next = *lst;
 	*lst = new;
+	return ;
 }
 
 void	ft_lstclear(t_list **lst)
@@ -64,6 +66,7 @@ void	ft_lstclear(t_list **lst)
 		free(*lst);
 		*lst = t;
 	}
+	return ;
 }
 
 t_list	*ft_lstlast(t_list *lst)
