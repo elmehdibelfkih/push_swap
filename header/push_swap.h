@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 22:04:10 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/04/03 00:59:23 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/04/03 01:23:32 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,5 @@ void	small_sort_5(t_list **stack_a, t_list **stack_b, t_vars *m);
 void	small_sort(t_list **stack_a, t_list **stack_b, t_vars *m);
 void	print_list(t_list *stack);
 void	n_of_shunks(t_vars *m);
-int	node_pose(t_list **stack_a, t_vars *m, int j);
+int		node_pose(t_list **stack_a, t_vars *m, int j);
 #endif

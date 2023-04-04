@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 13:42:42 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/04/03 00:56:56 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/04/03 01:51:10 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ int	node_pose(t_list **stack_a, t_vars *m, int j)
 	{
 		if (tmp->final_pos == j)
 		{
-			if (tmp->pos / 2 <= m->sa_n / 2)
+			if ((tmp->pos) <= (m->sa_n / 2))
 				return (1);
-			else if (tmp->pos / 2 >= m->sa_n / 2)
+			else if ((tmp->pos) > m->sa_n / 2)
 				return (-1);
 			else
 				return (0);
