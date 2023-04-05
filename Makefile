@@ -6,7 +6,7 @@
 #    By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/29 22:07:59 by ebelfkih          #+#    #+#              #
-#    Updated: 2023/04/03 00:46:43 by ebelfkih         ###   ########.fr        #
+#    Updated: 2023/04/05 03:17:40 by ebelfkih         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ BONUS_MAIN = main/checker.c
 CC = cc -Wall -Werror -Wextra
 RM = @rm -f
 AR = @ar rc
-FILES = utils/push_swap_utils.c utils/libft_utils.c utils/linked_list.c utils/read_check_input.c utils/operations.c utils/libft_utils2.c utils/libft_utils3.c utils/get_next_line.c utils/checker_utils.c sorting_algo/sort.c sorting_algo/shanks.c
+FILES = utils/push_swap_utils.c utils/libft_utils.c utils/linked_list.c utils/read_check_input.c utils/operations.c utils/libft_utils2.c utils/libft_utils3.c utils/get_next_line.c utils/checker_utils.c sorting_algo/sort.c sorting_algo/chanks.c
 OBJ = $(FILES:.c=.o)
 
 RED = \033[0;31m

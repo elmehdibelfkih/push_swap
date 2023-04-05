@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 06:14:22 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/04/04 05:31:01 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/04/05 03:18:15 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,40 +95,38 @@ void	small_sort_5(t_list **stack_a, t_list **stack_b, t_vars *m)
 		operation(stack_a, stack_b, m, "ra"));
 }
 
-	// print_list(*stack_b);
-void	small_sort(t_list **stack_a, t_list **stack_b, t_vars *m)
-{
-	int	i;
+// void	small_sort(t_list **stack_a, t_list **stack_b, t_vars *m)
+// {
+// 	int	i;
 
-	i = 0;
-	while (m->sa_n != 1 && is_sorted(stack_a, m))
-	{
-		if (i == 0 && (*stack_a)->final_pos == m->sb_n + 2)
-		{
-			operation(stack_a, stack_b, m, "pb");
-			i = 1;
-		}
-		else if ((*stack_a)->final_pos != m->sb_n + 1 - i)
-		{
-			if (node_pose(stack_a, m, m->sb_n + 1 - i) == -1)
-				operation(stack_a, stack_b, m, "rra");
-			else if ((*stack_a)->next->final_pos == m->sb_n + 1 - i)
-				operation(stack_a, stack_b, m, "sa");
-			else
-				operation(stack_a, stack_b, m, "ra");
-		}
-		else
-		{
-			operation(stack_a, stack_b, m, "pb");
-			if (i == 1)
-			{
-				operation(stack_a, stack_b, m, "sb");
-				i = 0;
-			}
-		}
-	}
-	while (*stack_b)
-		operation(stack_a, stack_b, m, "pa");
-	return ;
-}
-
+// 	i = 0;
+// 	while (m->sa_n != 1 && is_sorted(stack_a, m))
+// 	{
+// 		if (i == 0 && (*stack_a)->final_pos == m->sb_n + 2)
+// 		{
+// 			operation(stack_a, stack_b, m, "pb");
+// 			i = 1;
+// 		}
+// 		else if ((*stack_a)->final_pos != m->sb_n + 1 - i)
+// 		{
+// 			if (node_pose(stack_a, m, m->sb_n + 1 - i) == -1)
+// 				operation(stack_a, stack_b, m, "rra");
+// 			else if ((*stack_a)->next->final_pos == m->sb_n + 1 - i)
+// 				operation(stack_a, stack_b, m, "sa");
+// 			else
+// 				operation(stack_a, stack_b, m, "ra");
+// 		}
+// 		else
+// 		{
+// 			operation(stack_a, stack_b, m, "pb");
+// 			if (i == 1)
+// 			{
+// 				operation(stack_a, stack_b, m, "sb");
+// 				i = 0;
+// 			}
+// 		}
+// 	}
+// 	while (*stack_b)
+// 		operation(stack_a, stack_b, m, "pa");
+// 	return ;
+// }
