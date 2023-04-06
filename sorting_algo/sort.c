@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 06:14:22 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/04/06 06:40:14 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/04/06 07:31:37 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,16 +114,11 @@ void	small_sort(t_list **stack_a, t_list **stack_b, t_vars *m)
 		{
 			best_instructions(stack_a, stack_a, m);
 		}
-		// if (m->rb_status == 1)
-		// {
-		// 	operation(stack_a, stack_b, m, "rb");
-		// 	m->rb_status = 0;
-		// }
 		operation(stack_a, stack_b, m, "pb");
 		if ((*stack_b)->final_pos < ((m->chank_start) + (m->chunk_size / 2)))
 		{
 			// m->rb_status = 1;
-			operation(stack_a, stack_b, m, "rb");
+			operation(stack_a, stack_b, m, "rr");
 		}
 	}
 	return ;
@@ -138,50 +133,17 @@ int	best_instructions(t_list **stack_a, t_list **stack_b, t_vars *m)
 	// 	operation(stack_a, stack_b, m, "rr");
 	// 	m->rb_status = 0;
 	// }
-	// if (m->op == 1)
-	// 	operation(stack_a, stack_b, m, "ra");
-	else if (m->op == -1 && m->rb_status == 0)
-		operation(stack_a, stack_b, m, "rra");
 	// else if (m->op == -1 && m->rb_status == 1)
 	// {
 	// 	operation(stack_a, stack_b, m, "rra");
 	// 	operation(stack_a, stack_b, m, "rb");
 	// 	m->rb_status = 0;
 	// }
+	else if (m->op == -1 && m->rb_status == 0)
+		operation(stack_a, stack_b, m, "rra");
 	return (1);		
 }
-// void	small_sort(t_list **stack_a, t_list **stack_b, t_vars *m)
-// {
-// 	int	i;
 
-// 	i = 0;
-// 	while (m->sa_n != 1 && is_sorted(stack_a, m))
-// 	{
-// 		if (i == 0 && (*stack_a)->final_pos == m->sb_n + 2)
-// 		{
-// 			operation(stack_a, stack_b, m, "pb");
-// 			i = 1;
-// 		}
-// 		else if ((*stack_a)->final_pos != m->sb_n + 1 - i)
-// 		{
-// 			if (node_pose(stack_a, m, m->sb_n + 1 - i) == -1)
-// 				operation(stack_a, stack_b, m, "rra");
-// 			else if ((*stack_a)->next->final_pos == m->sb_n + 1 - i)
-// 				operation(stack_a, stack_b, m, "sa");
-// 			else
-// 				operation(stack_a, stack_b, m, "ra");
-// 		}
-// 		else
-// 		{
-// 			operation(stack_a, stack_b, m, "pb");
-// 			if (i == 1)
-// 			{
-// 				operation(stack_a, stack_b, m, "sb");
-// 				i = 0;
-// 			}
-// 		}
-// 	}
-// 	while (*stack_b)
-// 		operation(stack_a, stack_b, m, "pa");
-// 	return ;
-// }
+
+	// if (m->op == 1)
+	// 	operation(stack_a, stack_b, m, "ra");
