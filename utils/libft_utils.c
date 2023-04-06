@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 08:02:00 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/03/24 04:18:09 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/04/06 09:33:08 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_atoi(const char *str)
 		i++;
 	while (ft_isdigit(str[i]) && str[i])
 		re = re * 10 + (str[i++] - 48);
-	if ((re * si) < -2147483648 && (re * si) < +2147483647)
+	if ((re * si) < -2147483648 || (re * si) > 2147483647)
 		exit_message(3, NULL, NULL);
 	return (re * si);
 }
