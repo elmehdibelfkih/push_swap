@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 06:14:22 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/04/06 07:31:37 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/04/06 08:18:58 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,11 +114,16 @@ void	small_sort(t_list **stack_a, t_list **stack_b, t_vars *m)
 		{
 			best_instructions(stack_a, stack_a, m);
 		}
+		// if ((*stack_b)->final_pos < ((m->chank_start) + (m->chunk_size / 2)))
+		// {
+		// 	// m->rb_status = 1;
+		// 	operation(stack_a, stack_b, m, "rr");
+		// }
 		operation(stack_a, stack_b, m, "pb");
 		if ((*stack_b)->final_pos < ((m->chank_start) + (m->chunk_size / 2)))
 		{
-			// m->rb_status = 1;
-			operation(stack_a, stack_b, m, "rr");
+			m->rb_status = 1;
+			// operation(stack_a, stack_b, m, "rr");
 		}
 	}
 	return ;
@@ -127,20 +132,28 @@ void	small_sort(t_list **stack_a, t_list **stack_b, t_vars *m)
 int	best_instructions(t_list **stack_a, t_list **stack_b, t_vars *m)
 {
 	if (m->op == 1 && m->rb_status == 0)
+	{
 		operation(stack_a, stack_b, m, "ra");
-	// else if (m->op == 1 && m->rb_status == 1)
-	// {
-	// 	operation(stack_a, stack_b, m, "rr");
-	// 	m->rb_status = 0;
-	// }
-	// else if (m->op == -1 && m->rb_status == 1)
-	// {
-	// 	operation(stack_a, stack_b, m, "rra");
-	// 	operation(stack_a, stack_b, m, "rb");
-	// 	m->rb_status = 0;
-	// }
-	else if (m->op == -1 && m->rb_status == 0)
+		return (1);
+	}
+	else if (m->op == 1 && m->rb_status == 1)
+	{
+		operation(stack_a, stack_b, m, "rr");
+		m->rb_status = 0;
+		return (1);
+	}
+	else if (m->op == -1 && m->rb_status == 1)
+	{
 		operation(stack_a, stack_b, m, "rra");
+		operation(stack_a, stack_b, m, "rb");
+		m->rb_status = 0;
+		return (1);
+	}
+	else if (m->op == -1 && m->rb_status == 0)
+	{
+		operation(stack_a, stack_b, m, "rra");
+		return (1);
+	}
 	return (1);		
 }
 

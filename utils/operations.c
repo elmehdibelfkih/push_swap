@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 05:33:33 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/03/26 08:45:09 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/04/06 07:38:44 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,19 +75,15 @@ void	rotate(t_list **stack_a, t_list **stack_b, t_vars *m, int i)
 {
 	t_list	*tmp;
 
-	if (i == 5 || i == 7)
+	if ((i == 5 || i == 7) && m->sa_n > 2)
 	{
-		if (m->sa_n < 2 || (i == 7 && (m->sa_n < 2 && m->sb_n < 2)))
-			return ;
 		tmp = *stack_a;
 		*stack_a = (*stack_a)->next;
 		tmp->next = NULL;
 		ft_lstadd_back(stack_a, tmp);
 	}
-	if (i == 6 || i == 7)
+	if ((i == 6 || i == 7) && m->sb_n > 2)
 	{
-		if (m->sb_n < 2 || (i == 7 && (m->sa_n < 2 && m->sb_n < 2)))
-			return ;
 		tmp = *stack_b;
 		*stack_b = (*stack_b)->next;
 		tmp->next = NULL;
