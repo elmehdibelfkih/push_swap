@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 13:42:42 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/04/06 09:12:11 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/04/07 02:23:52 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	n_of_chunks(t_vars *m)
 	else if (m->sa_n <= 100)
 		m->n_chunks = 5;
 	else if (m->sa_n <= 500)
-		m->n_chunks = 11;
+		m->n_chunks = 9;
 	else
 		m->n_chunks = 50;
 	m->chunk_size = m->sa_n / m->n_chunks;

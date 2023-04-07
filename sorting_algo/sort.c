@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 06:14:22 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/04/06 09:47:03 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/04/07 02:58:49 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,88 +95,48 @@ void	small_sort_5(t_list **stack_a, t_list **stack_b, t_vars *m)
 		operation(stack_a, stack_b, m, "ra"));
 }
 
+void	best_instructions(t_list **stack_a, t_list **stack_b, t_vars *m)
+{
+	m->chank = (m->sb_n / m->chunk_size) + 1;
+	m->chank_start = ((m->chank - 1) * m->chunk_size) + 1;
+	m->chank_end = (m->chank * m->chunk_size);
+	m->op = node_pose(stack_a, m);
+	while (m->chank_start > (*stack_a)->final_pos
+		|| (*stack_a)->final_pos > m->chank_end)
+	{		
+		if (m->op == 1 && m->rb_status == 0)
+			operation(stack_a, stack_b, m, "ra");
+		else if (m->op == 1 && m->rb_status == 1)
+		{
+			operation(stack_a, stack_b, m, "rr");
+			m->rb_status = 0;
+		}
+		else if (m->op == -1 && m->rb_status == 1)
+		{
+			operation(stack_a, stack_b, m, "rra");
+			operation(stack_a, stack_b, m, "rb");
+			m->rb_status = 0;
+		}
+		else if (m->op == -1 && m->rb_status == 0)
+			operation(stack_a, stack_b, m, "rra");
+	}
+	return ;
+}
+
 void	small_sort(t_list **stack_a, t_list **stack_b, t_vars *m)
 {
 	m->rb_status = 0;
 	while (m->sa_n != 0)
 	{
-		m->chank = (m->sb_n / m->chunk_size) + 1;
-		m->chank_start = ((m->chank - 1) * m->chunk_size) + 1;
-		m->chank_end = (m->chank * m->chunk_size);
-		m->op = node_pose(stack_a, m);
-		while (m->chank_start > (*stack_a)->final_pos || (*stack_a)->final_pos > m->chank_end)
+		best_instructions(stack_a, stack_b, m);
+		if (m->rb_status == 1)
 		{
-			// best_instructions(stack_a, stack_a, m);
-			if (m->op == 1 && m->rb_status == 0)
-			{
-				operation(stack_a, stack_b, m, "ra");
-			}
-			else if (m->op == 1 && m->rb_status == 1)
-			{
-				operation(stack_a, stack_b, m, "rr");
-				m->rb_status = 0;
-			}
-			else if (m->op == -1 && m->rb_status == 1)
-			{
-				operation(stack_a, stack_b, m, "rra");
-				operation(stack_a, stack_b, m, "rb");
-				m->rb_status = 0;
-			}
-			else if (m->op == -1 && m->rb_status == 0)
-			{
-				operation(stack_a, stack_b, m, "rra");
-			}
-			// else if (m->rb_status == 1)
-			// {
-			// 	operation(stack_a, stack_b, m, "rb");
-			// 	m->rb_status = 0;
-			// }
-	}
-	if (m->rb_status == 1)
-	{
-		operation(stack_a, stack_b, m, "rb");
-		m->rb_status = 0;
-	}
-	operation(stack_a, stack_b, m, "pb");
-	if ((*stack_b)->final_pos <= ((m->chank_end) - (m->chunk_size / 2)))
-	{
-		m->rb_status = 1;
-			// operation(stack_a, stack_b, m, "rr");
-	}
+			operation(stack_a, stack_b, m, "rb");
+			m->rb_status = 0;
+		}
+		operation(stack_a, stack_b, m, "pb");
+		if ((*stack_b)->final_pos <= ((m->chank_end) - (m->chunk_size / 2)))
+			m->rb_status = 1;
 	}
 	return ;
 }
-
-int	best_instructions(t_list **stack_a, t_list **stack_b, t_vars *m)
-{
-	if (m->op == 1 && m->rb_status == 0)
-	{
-		operation(stack_a, stack_b, m, "ra");
-		return (1);
-	}
-	else if (m->op == 1 && m->rb_status == 1)
-	{
-		operation(stack_a, stack_b, m, "rr");
-		m->rb_status = 0;
-		return (1);
-	}
-	else if (m->op == -1 && m->rb_status == 1)
-	{
-		operation(stack_a, stack_b, m, "rra");
-		operation(stack_a, stack_b, m, "rb");
-		m->rb_status = 0;
-		return (1);
-	}
-	else if (m->op == -1 && m->rb_status == 0)
-	{
-		operation(stack_a, stack_b, m, "rra");
-		return (1);
-	}
-	else if (m->rb_status == 1)
-		operation(stack_a, stack_b, m, "rb");
-	return (1);		
-}
-
-
-	// if (m->op == 1)
-	// 	operation(stack_a, stack_b, m, "ra");
