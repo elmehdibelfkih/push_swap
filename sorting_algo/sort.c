@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 06:14:22 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/04/07 02:58:49 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/04/07 06:39:49 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,18 +106,16 @@ void	best_instructions(t_list **stack_a, t_list **stack_b, t_vars *m)
 	{		
 		if (m->op == 1 && m->rb_status == 0)
 			operation(stack_a, stack_b, m, "ra");
-		else if (m->op == 1 && m->rb_status == 1)
+		else if (m->op == 1 && m->rb_status != 0)
 		{
 			operation(stack_a, stack_b, m, "rr");
-			m->rb_status = 0;
+			m->rb_status--;
 		}
-		else if (m->op == -1 && m->rb_status == 1)
-		{
-			operation(stack_a, stack_b, m, "rra");
-			operation(stack_a, stack_b, m, "rb");
-			m->rb_status = 0;
-		}
-		else if (m->op == -1 && m->rb_status == 0)
+		// else if (m->op == -1 && m->rb_status != 0)
+		// {
+		// 	operation(stack_a, stack_b, m, "rra");
+		// }
+		else if (m->op == -1)
 			operation(stack_a, stack_b, m, "rra");
 	}
 	return ;
@@ -129,14 +127,33 @@ void	small_sort(t_list **stack_a, t_list **stack_b, t_vars *m)
 	while (m->sa_n != 0)
 	{
 		best_instructions(stack_a, stack_b, m);
-		if (m->rb_status == 1)
+		operation(stack_a, stack_b, m, "pb");
+		if ((*stack_b)->final_pos <= ((m->chank_start) + (m->chunk_size / 2)))
+			m->rb_status++;
+		while(m->rb_status > 0 && node_pose(stack_a, m) == -1)
 		{
 			operation(stack_a, stack_b, m, "rb");
-			m->rb_status = 0;
+			m->rb_status--;
 		}
-		operation(stack_a, stack_b, m, "pb");
-		if ((*stack_b)->final_pos <= ((m->chank_end) - (m->chunk_size / 2)))
-			m->rb_status = 1;
+	}
+	if ((*stack_b)->final_pos <= ((m->chank_start) + (m->chunk_size / 2)))
+		operation(stack_a, stack_b, m, "rb");
+	push_to_stack_a(stack_a, stack_b, m);
+	return ;
+}
+
+void	push_to_stack_a(t_list **stack_a, t_list **stack_b, t_vars *m)
+{
+	while (m->sb_n)
+	{
+		while ((*stack_b)->final_pos != (m->sb_n))
+		{
+			if (instructions_counter(stack_b, m, m->sb_n) == 1)
+				operation(stack_a, stack_b, m, "rb");
+			else
+				operation(stack_a, stack_b, m, "rrb");
+		}
+		operation(stack_a, stack_b, m, "pa");
 	}
 	return ;
 }

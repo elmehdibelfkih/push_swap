@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 13:42:42 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/04/07 02:23:52 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/04/07 06:11:35 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,28 +44,26 @@ int	node_pose(t_list **stack_a, t_vars *m)
 		}
 		tmp = tmp->next;
 	}
-	if (i <= m->sa_n - j + 1)
+	if (i < m->sa_n - j + 1)
 		return (1);
 	return (-1);
 }
 
-// int instructions_counter(t_list **stack_a, t_vars *m, int j)
-// {
-// 	t_list	*tmp;
+int instructions_counter(t_list **stack_b, t_vars *m, int j)
+{
+	t_list	*tmp;
 
-// 	tmp = *stack_a;
-// 	while (tmp)
-// 	{
-// 		if (tmp->final_pos == j)
-// 		{
-// 			if ((tmp->pos) <= (m->sa_n / 2))
-// 				return (1);
-// 			else if ((tmp->pos) > m->sa_n / 2)
-// 				return (-1);
-// 			else
-// 				return (0);
-// 		}
-// 		tmp = tmp->next;
-// 	}
-// 	return (0);
-// }
+	tmp = *stack_b;
+	while (tmp)
+	{
+		if (tmp->final_pos == j)
+		{
+			if ((tmp->pos) <= (m->sb_n / 2))
+				return (1);
+			else if ((tmp->pos) > m->sb_n / 2)
+				return (-1);
+		}
+		tmp = tmp->next;
+	}
+	return (0);
+}
