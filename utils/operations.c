@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 05:33:33 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/04/06 07:38:44 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/04/07 06:59:18 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,10 +99,7 @@ void	reverse_rotate(t_list **stack_a, t_list **stack_b, t_vars *m, int i)
 {
 	t_list	*tmp;
 
-	if (((i == 8 && m->sa_n < 2) || (i == 9 && m->sb_n < 2))
-		|| (i == 10 && (m->sa_n < 2 || m->sb_n < 2)))
-		return ;
-	if (i == 8 || i == 10)
+	if ((i == 8 || i == 10) && m->sa_n >= 2)
 	{
 		tmp = *stack_a;
 		while (tmp->next->next)
@@ -110,7 +107,7 @@ void	reverse_rotate(t_list **stack_a, t_list **stack_b, t_vars *m, int i)
 		ft_lstadd_front(stack_a, tmp->next);
 		tmp->next = NULL;
 	}
-	if (i == 9 || i == 10)
+	if ((i == 9 || i == 10) && m->sb_n >= 2)
 	{
 		tmp = *stack_b;
 		while (tmp->next->next)

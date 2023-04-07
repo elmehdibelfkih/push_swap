@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 22:01:19 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/04/06 07:19:21 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/04/07 10:48:25 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ int	main(int ac, char **av)
 		exit_message(2, &stack_a, &stack_b);
 	n_of_chunks(&m);
 	small_sort(&stack_a, &stack_b, &m);
+	printf("--------------------------------\n");
+	printf("stack_a\n");
+	print_list(stack_a);
+	printf("stack_b\n");
+	print_list(stack_b);
+	printf("--------------------------------\n");
 }
-	// printf("--------------------------------\n");
-	// printf("stack_a\n");
-	// print_list(stack_a);
-	// printf("stack_b\n");
-	// print_list(stack_b);
-	// printf("--------------------------------\n");

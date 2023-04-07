@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 06:14:22 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/04/07 06:39:49 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/04/07 10:34:13 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ void	small_sort(t_list **stack_a, t_list **stack_b, t_vars *m)
 			m->rb_status--;
 		}
 	}
-	if ((*stack_b)->final_pos <= ((m->chank_start) + (m->chunk_size / 2)))
+	if ((*stack_b)->final_pos < ((m->chank_start) + (m->chunk_size / 2)))
 		operation(stack_a, stack_b, m, "rb");
 	push_to_stack_a(stack_a, stack_b, m);
 	return ;
@@ -146,14 +146,18 @@ void	push_to_stack_a(t_list **stack_a, t_list **stack_b, t_vars *m)
 {
 	while (m->sb_n)
 	{
-		while ((*stack_b)->final_pos != (m->sb_n))
+		if ((*stack_b)->final_pos == m->sb_n)
 		{
+			// printf("m->sb_n :%d\nfinal_pos:%d\ncontent:%d\n", m->sb_n, (*stack_b)->final_pos, (*stack_b)->content);
+			operation(stack_a, stack_b, m, "pa");
+		}
+		else
+		{	
 			if (instructions_counter(stack_b, m, m->sb_n) == 1)
 				operation(stack_a, stack_b, m, "rb");
 			else
 				operation(stack_a, stack_b, m, "rrb");
 		}
-		operation(stack_a, stack_b, m, "pa");
 	}
 	return ;
 }

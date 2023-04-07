@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 22:04:10 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/04/07 06:11:13 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/04/07 09:51:06 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,5 @@ int		node_pose(t_list **stack_a, t_vars *m);
 void	best_instructions(t_list **stack_a, t_list **stack_b, t_vars *m);
 int		instructions_counter(t_list **stack_a, t_vars *m, int j);
 void	push_to_stack_a(t_list **stack_a, t_list **stack_b, t_vars *m);
+
 #endif

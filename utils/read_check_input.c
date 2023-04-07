@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 22:00:53 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/04/03 00:44:52 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/04/07 06:50:28 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	final_pos(t_list *stack_a)
 			{
 				if (min == NULL)
 					min = x2;
-				if (x2->content < min->content)
+				else if (x2->content < min->content)
 					min = x2;
 			}
 			x2 = x2->next;

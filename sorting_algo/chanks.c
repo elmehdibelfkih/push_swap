@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 13:42:42 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/04/07 06:11:35 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/04/07 10:17:21 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	n_of_chunks(t_vars *m)
 	if (m->sa_n <= 5)
 		m->n_chunks = 1;
 	else if (m->sa_n <= 100)
-		m->n_chunks = 5;
+		m->n_chunks = 6;
 	else if (m->sa_n <= 500)
 		m->n_chunks = 9;
 	else
@@ -44,7 +44,7 @@ int	node_pose(t_list **stack_a, t_vars *m)
 		}
 		tmp = tmp->next;
 	}
-	if (i < m->sa_n - j + 1)
+	if (i <= m->sa_n - j + 1)
 		return (1);
 	return (-1);
 }
@@ -65,5 +65,5 @@ int instructions_counter(t_list **stack_b, t_vars *m, int j)
 		}
 		tmp = tmp->next;
 	}
-	return (0);
+	return (-1);
 }
