@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 22:04:10 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/04/07 09:51:06 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/04/23 06:38:42 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct s_vars {
 	int	chank_end;
 	int	op;
 	int	rb_status;
+	int	sw_status;
 	int	c;
 	int	f;
 	int	i;
@@ -87,12 +88,14 @@ void	checker_read_input(t_list **stack_a, t_list **stack_b, t_vars *m);
 void	small_sort_3(t_list **stack_a, t_list **stack_b, t_vars *m);
 void	small_sort_4(t_list **stack_a, t_list **stack_b, t_vars *m);
 void	small_sort_5(t_list **stack_a, t_list **stack_b, t_vars *m);
-void	small_sort(t_list **stack_a, t_list **stack_b, t_vars *m);
+void	push_to_stack_b(t_list **stack_a, t_list **stack_b, t_vars *m);
 void	print_list(t_list *stack);
 void	n_of_chunks(t_vars *m);
 int		node_pose(t_list **stack_a, t_vars *m);
 void	best_instructions(t_list **stack_a, t_list **stack_b, t_vars *m);
 int		instructions_counter(t_list **stack_a, t_vars *m, int j);
 void	push_to_stack_a(t_list **stack_a, t_list **stack_b, t_vars *m);
+void	sort(t_list **stack_a, t_list **stack_b, t_vars *m);
+int		best_push(t_list **stack_b, t_vars *m);
 
 #endif
