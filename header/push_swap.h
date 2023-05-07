@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 22:04:10 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/05/07 06:07:44 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/05/07 07:58:35 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,6 @@ int		instructions_counter(t_list **stack_a, t_vars *m, int j);
 void	push_to_stack_a(t_list **stack_a, t_list **stack_b, t_vars *m);
 void	sort(t_list **stack_a, t_list **stack_b, t_vars *m);
 int		best_push(t_list **stack_b, t_vars *m);
+void	best_swap(t_list **stack_a, t_list **stack_b, t_vars *m);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 13:42:42 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/05/07 06:02:59 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/05/07 09:15:20 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	n_of_chunks(t_vars *m)
 	else if (m->sa_n <= 400)
 		m->n_chunks = 9;
 	else if (m->sa_n <= 500)
-		m->n_chunks = 11;
+		m->n_chunks = 10;
 	else
 		m->n_chunks = 50;
 	m->chunk_size = m->sa_n / m->n_chunks;
@@ -82,7 +82,7 @@ void	best_instructions(t_list **stack_a, t_list **stack_b, t_vars *m)
 	m->op = node_pose(stack_a, m);
 	while (m->chank_start > (*stack_a)->final_pos
 		|| (*stack_a)->final_pos > m->chank_end)
-	{		
+	{	
 		if (m->op == 1 && m->rb_status == 0)
 			operation(stack_a, stack_b, m, "ra");
 		else if (m->op == 1 && m->rb_status != 0)
@@ -105,14 +105,11 @@ void	push_to_stack_b(t_list **stack_a, t_list **stack_b, t_vars *m)
 		if ((*stack_a)->final_pos > ((m->chank_start) + (m->chunk_size / 2)))
 			m->rb_status++;
 		else
-		{
 			while(m->rb_status > 0)
 			{
 				operation(stack_a, stack_b, m, "rb");
 				m->rb_status--;
-			}
-				
-		}
+			}	
 		operation(stack_a, stack_b, m, "pb");
 	}
 	if ((*stack_b)->final_pos <= ((m->chank_start) + (m->chunk_size / 2)))
@@ -126,10 +123,7 @@ void	push_to_stack_a(t_list **stack_a, t_list **stack_b, t_vars *m)
 	while (m->sb_n)
 	{
 		if (m->sw_status == 1 && (*stack_a)->final_pos == (m->sb_n + 2))
-		{
-			operation(stack_a, stack_b, m, "sa");
-			m->sw_status = 0;
-		}
+			best_swap(stack_a, stack_b, m);
 		else if (((*stack_b)->final_pos == (m->sb_n + m->sw_status)) || ((*stack_b)->final_pos == (m->sb_n + m->sw_status - 1)))
 		{
 			operation(stack_a, stack_b, m, "pa");
@@ -145,10 +139,7 @@ void	push_to_stack_a(t_list **stack_a, t_list **stack_b, t_vars *m)
 		}
 	}
 	if (m->sw_status == 1 && (*stack_a)->final_pos == (m->sb_n + 2))
-	{
 		operation(stack_a, stack_b, m, "sa");
-		m->sw_status = 0;
-	}
 	return ;
 }
 
@@ -173,4 +164,19 @@ int	best_push(t_list **stack_b, t_vars *m)
 	if (max >= next_max)
 		return (m->sb_n - 1);
 	return (m->sb_n);
+}
+
+void	best_swap(t_list **stack_a, t_list **stack_b, t_vars *m)
+{
+	if (m->sb_n >= 2 && (*stack_b)->final_pos < (*stack_b)->next->final_pos)
+	{
+		operation(stack_a, stack_b, m, "ss");
+		m->sw_status = 0;
+	}
+	else
+	{
+		operation(stack_a, stack_b, m, "sa");
+		m->sw_status = 0;
+	}
+	return ;
 }
