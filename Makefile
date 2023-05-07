@@ -6,7 +6,7 @@
 #    By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/29 22:07:59 by ebelfkih          #+#    #+#              #
-#    Updated: 2023/04/07 09:09:17 by ebelfkih         ###   ########.fr        #
+#    Updated: 2023/05/07 09:20:40 by ebelfkih         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,9 +29,8 @@ PURPLE = \033[0;35m
 %.o : %.c header/push_swap.h main/push_swap.c main/checker.c
 	$(CC) -o $@ -c $<
 
-all : $(ONAME) $(BONUS_NAME) $(NAME) inout
+all : $(ONAME) $(BONUS_NAME) $(NAME)
 	@echo "${GREEN} archive files are created"
-	@echo "${GREEN} input, output files are created"
 	@echo "${PURPLE} executable files are created"
 	@echo "${PURPLE} bonus executable file is created"
 
@@ -57,7 +56,7 @@ clean :
 bonus : $(ONAME) $(BONUS_NAME)
 	@echo "${GREEN} start compiling"
 	@echo "${GREEN} archive files are created"
-	@echo "${PURPLE} bonus executable file is created"
+	@echo "${PURPLE} bonus executable file are created"
 
 fclean: clean
 	$(RM) $(NAME) $(ONAME) $(BONUS_NAME) $(IN_OUT)
@@ -65,4 +64,4 @@ fclean: clean
 
 re: fclean all 
 
-.PHONY: clean fclean re bonus all inout mandatory
+.PHONY: clean fclean re bonus all mandatory

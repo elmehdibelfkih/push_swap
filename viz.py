@@ -216,7 +216,6 @@ class PsGui:
             self.can.update()
         self.PauseCtl.config(text='>')
 
-
 root = Tk()
 root.resizable(width=False, height=False)
 gui = PsGui(root)
