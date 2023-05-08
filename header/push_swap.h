@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 22:04:10 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/05/08 01:30:16 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/05/08 11:30:40 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ typedef struct s_vars {
 	int	chank;
 	int	chank_start;
 	int	chank_end;
-	int	op;
 	int	rb_status;
 	int	sw_status;
 	int	c;
