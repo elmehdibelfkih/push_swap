@@ -29,10 +29,4 @@ int	main(int ac, char **av)
 		exit_message(2, &stack_a, &stack_b);
 	n_of_chunks(&m);
 	sort(&stack_a, &stack_b, &m);
-	// printf("--------------------------------\n");
-	// printf("stack_a\n");
-	// print_list(stack_a);
-	// printf("stack_b\n");
-	// print_list(stack_b);
-	// printf("--------------------------------\n");
 }
