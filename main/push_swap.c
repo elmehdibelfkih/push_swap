@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 22:01:19 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/04/23 04:15:29 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/05/08 07:08:31 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int ac, char **av)
 		return (0);
 	read_input(&stack_a, av, &m);
 	if (is_sorted(&stack_a, &m) == 1)
-		exit_message(2, &stack_a, &stack_b);
+		exit(0);
 	n_of_chunks(&m);
 	sort(&stack_a, &stack_b, &m);
 }
