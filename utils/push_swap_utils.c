@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 10:58:58 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/05/08 07:12:24 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/05/09 08:31:25 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	print_operation(int i)
 	operation[10] = ft_strdup("rrr\n");
 	operation[11] = NULL;
 	write(1, operation[i], strlen(operation[i]));
-	ft_clear(operation, 10);
+	ft_clear(operation, 11);
 	return ;
 }
 
