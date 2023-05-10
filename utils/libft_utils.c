@@ -6,13 +6,13 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 08:02:00 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/05/08 11:02:23 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/05/10 06:59:23 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
 
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *str, t_list **stack_a, t_vars *m)
 {
 	size_t		i;
 	int			si;
@@ -34,7 +34,7 @@ int	ft_atoi(const char *str)
 	{
 		re = re * 10 + (str[i++] - 48);
 		if ((re * si) < -2147483648 || (re * si) > 2147483647)
-			exit_message(3, NULL, NULL);
+			exit_message(2, stack_a, NULL, m);
 	}
 	return (re * si);
 }

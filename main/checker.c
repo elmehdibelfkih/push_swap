@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 06:48:18 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/03/25 06:03:29 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/05/10 07:05:58 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ int	main(int ac, char **av)
 		return (0);
 	read_input(&stack_a, av, &m);
 	checker_read_input(&stack_a, &stack_b, &m);
-	return (1);
+	exit_message(0, &stack_a, &stack_b, &m);
 }

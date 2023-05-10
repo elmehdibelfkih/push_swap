@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 22:04:10 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/05/08 11:30:40 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/05/10 07:04:44 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_list {
 }				t_list;
 
 typedef struct s_vars {
+	char **t;
 	int	sa_n;
 	int	sb_n;
 	int	ch_status;
@@ -48,14 +49,14 @@ typedef struct s_vars {
 	int	n;
 }				t_vars;
 
-void	exit_message(int i, t_list **stack, t_list **stack_b);
+void	exit_message(int i, t_list **stack, t_list **stack_b, t_vars *m);
 t_list	*ft_lstnew(int i, int initial_pos);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstclear(t_list **lst);
 t_list	*ft_lstlast(t_list *lst);
 int		ft_isdigit(int c);
-int		ft_atoi(const char *str);
+int		ft_atoi(const char *str, t_list **stack_a, t_vars *m);
 int		n_of_world(char const *s, char c);
 int		ft_clear(char **spl, int p);
 int		plen(char **spl, const char *s, char c);
@@ -89,7 +90,6 @@ void	small_sort_4(t_list **stack_a, t_list **stack_b, t_vars *m);
 void	small_sort_5(t_list **stack_a, t_list **stack_b, t_vars *m);
 void	push_to_stack_b(t_list **stack_a, t_list **stack_b, t_vars *m);
 void	n_of_chunks(t_vars *m);
-int		node_pose(t_list **stack_a, t_vars *m);
 void	best_instructions(t_list **stack_a, t_list **stack_b, t_vars *m);
 int		instructions_counter(t_list **stack_a, t_vars *m, int j);
 void	push_to_stack_a(t_list **stack_a, t_list **stack_b, t_vars *m);

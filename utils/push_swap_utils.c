@@ -6,28 +6,26 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 10:58:58 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/05/09 08:31:25 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/05/10 07:01:49 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
 
-void	exit_message(int i, t_list **stack_a, t_list **stack_b)
+void	exit_message(int i, t_list **stack_a, t_list **stack_b, t_vars *m)
 {
-	char	**message;
+	char	*message;
 
-	message = malloc(5 * sizeof(char *));
-	message[0] = ft_strdup("Is not digit\n");
-	message[1] = ft_strdup("Duplicate founded !\n");
-	message[2] = ft_strdup("Sorted !!\n");
-	message[3] = ft_strdup("Error\n");
-	message[4] = NULL;
-	write(1, message[i], strlen(message[i]));
+	message = ft_strdup("Error");
+	if (i == 1 || i == 2)
+		write(1, message, strlen(message));
 	if (stack_a)
 		ft_lstclear(stack_a);
 	if (stack_b)
 		ft_lstclear(stack_b);
-	ft_clear(message, 3);
+	if (i == 2 && m->t != NULL)
+		ft_clear(m->t, 100000);
+	free(message);
 	exit(0);
 }
 
@@ -49,7 +47,7 @@ void	print_operation(int i)
 	operation[10] = ft_strdup("rrr\n");
 	operation[11] = NULL;
 	write(1, operation[i], strlen(operation[i]));
-	ft_clear(operation, 11);
+	ft_clear(operation, 12);
 	return ;
 }
 
@@ -92,7 +90,7 @@ void	operation(t_list **stack_a, t_list **stack_b, t_vars *m, char *s)
 	else if (ft_strncmp(s, "rrr", 5))
 		reverse_rotate(stack_a, stack_b, m, 10);
 	else
-		exit_message(3, stack_a, stack_b);
+		exit_message(1, stack_a, stack_b, m);
 	return ;
 }
 

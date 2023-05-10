@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 22:00:53 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/04/07 06:50:28 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/05/10 07:06:55 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,25 @@
 
 void	read_input(t_list **stack_a, char **av, t_vars *m)
 {
-	char	**t;
-
-	m->n = 0;
-	m->sa_n = 0;
 	while (av[++m->n])
 	{
-		t = ft_split(av[m->n], ' ');
-		if (!t[0])
-			exit_message(3, stack_a, NULL);
+		m->t = ft_split(av[m->n], ' ');
+		if (!m->t && !m->t[0])
+			exit_message(2, stack_a, NULL, m);
 		m->i = -1;
-		while (t[++m->i])
+		while (m->t[++m->i])
 		{
 			m->j = -1;
-			while (t[m->i][++m->j])
+			while (m->t[m->i][++m->j])
 			{
-				if (m->j == 0 && (t[m->i][m->j] == '-' || t[m->i][m->j] == '+'))
+				if (m->j == 0 && (m->t[m->i][m->j] == '-' || m->t[m->i][m->j] == '+'))
 					m->j++;
-				if (!ft_isdigit(t[m->i][m->j]))
-					exit_message(0, stack_a, NULL);
+				if (!ft_isdigit(m->t[m->i][m->j]))
+					exit_message(2, stack_a, NULL, m);
 			}
-			ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(t[m->i]), ++m->sa_n));
+			ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(m->t[m->i], stack_a, m), ++m->sa_n));
 		}
-		ft_clear(t, m->i);
+		ft_clear(m->t, m->i);
 	}
 	return (check_duplicate(stack_a), final_pos(*stack_a));
 }
@@ -53,7 +49,7 @@ void	check_duplicate(t_list **stack_a)
 		while (y)
 		{
 			if (y->content == x->content)
-				exit_message(1, stack_a, NULL);
+				exit_message(1, stack_a, NULL, NULL);
 			y = y->next;
 		}
 		x = x->next;
