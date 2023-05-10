@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 10:58:58 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/05/10 07:01:49 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/05/10 10:08:50 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,16 @@ void	exit_message(int i, t_list **stack_a, t_list **stack_b, t_vars *m)
 {
 	char	*message;
 
-	message = ft_strdup("Error");
+	message = ft_strdup("Error\n");
 	if (i == 1 || i == 2)
 		write(1, message, strlen(message));
 	if (stack_a)
 		ft_lstclear(stack_a);
 	if (stack_b)
 		ft_lstclear(stack_b);
-	if (i == 2 && m->t != NULL)
-		ft_clear(m->t, 100000);
+	(void)m;
+	// if (i == 2 && m->t != NULL)
+	// 	ft_clear(m->t, 100000);
 	free(message);
 	exit(0);
 }

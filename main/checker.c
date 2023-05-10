@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 06:48:18 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/05/10 07:05:58 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/05/10 10:17:27 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main(int ac, char **av)
 	m.ch_status = 1;
 	m.sa_n = 0;
 	m.sb_n = 0;
+	m.n = 0;
 	if (ac < 2)
 		return (0);
 	read_input(&stack_a, av, &m);

@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 22:00:53 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/05/10 08:36:25 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/05/10 10:16:31 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	read_input(t_list **stack_a, char **av, t_vars *m)
 	while (av[++m->n])
 	{
 		m->t = ft_split(av[m->n], ' ');
-		if (!m->t && !m->t[0])
+		if (!m->t || !m->t[0])
 			exit_message(2, stack_a, NULL, m);
 		m->i = -1;
 		while (m->t[++m->i])
