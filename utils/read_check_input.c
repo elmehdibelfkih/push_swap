@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 22:00:53 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/05/10 07:06:55 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/05/10 08:36:25 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,14 @@ void	read_input(t_list **stack_a, char **av, t_vars *m)
 			m->j = -1;
 			while (m->t[m->i][++m->j])
 			{
-				if (m->j == 0 && (m->t[m->i][m->j] == '-' || m->t[m->i][m->j] == '+'))
+				if (m->j == 0 && (m->t[m->i][m->j] == '-'
+					|| m->t[m->i][m->j] == '+'))
 					m->j++;
 				if (!ft_isdigit(m->t[m->i][m->j]))
 					exit_message(2, stack_a, NULL, m);
 			}
-			ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(m->t[m->i], stack_a, m), ++m->sa_n));
+			ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(m->t[m->i],
+						stack_a, m), ++m->sa_n));
 		}
 		ft_clear(m->t, m->i);
 	}

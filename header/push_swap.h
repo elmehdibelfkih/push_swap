@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 22:04:10 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/05/10 07:04:44 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/05/10 08:34:59 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,22 +31,22 @@ typedef struct s_list {
 }				t_list;
 
 typedef struct s_vars {
-	char **t;
-	int	sa_n;
-	int	sb_n;
-	int	ch_status;
-	int	n_chunks;
-	int	chunk_size;
-	int	chank;
-	int	chank_start;
-	int	chank_end;
-	int	rb_status;
-	int	sw_status;
-	int	c;
-	int	f;
-	int	i;
-	int	j;
-	int	n;
+	char	**t;
+	int		sa_n;
+	int		sb_n;
+	int		ch_status;
+	int		n_chunks;
+	int		chunk_size;
+	int		chank;
+	int		chank_start;
+	int		chank_end;
+	int		rb_status;
+	int		sw_status;
+	int		c;
+	int		f;
+	int		i;
+	int		j;
+	int		n;
 }				t_vars;
 
 void	exit_message(int i, t_list **stack, t_list **stack_b, t_vars *m);
