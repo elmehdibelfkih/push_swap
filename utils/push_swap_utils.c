@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 10:58:58 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/05/10 10:08:50 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/05/12 16:41:25 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,19 @@ void	exit_message(int i, t_list **stack_a, t_list **stack_b, t_vars *m)
 	char	*message;
 
 	message = ft_strdup("Error\n");
-	if (i == 1 || i == 2)
+	if (i == 1 || i == 2 || i == 3)
 		write(1, message, strlen(message));
 	if (stack_a)
 		ft_lstclear(stack_a);
 	if (stack_b)
 		ft_lstclear(stack_b);
-	(void)m;
-	// if (i == 2 && m->t != NULL)
-	// 	ft_clear(m->t, 100000);
+	if (i == 2 && m->t != NULL)
+		ft_clear(m->t, 100000);
+	if (m->ch_status == 1 && i == 3)
+	{
+		free (m->tr);
+		free(m->s);
+	}
 	free(message);
 	exit(0);
 }
@@ -91,7 +95,7 @@ void	operation(t_list **stack_a, t_list **stack_b, t_vars *m, char *s)
 	else if (ft_strncmp(s, "rrr", 5))
 		reverse_rotate(stack_a, stack_b, m, 10);
 	else
-		exit_message(1, stack_a, stack_b, m);
+		exit_message(3, stack_a, stack_b, m);
 	return ;
 }
 
