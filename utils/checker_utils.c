@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 07:20:18 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/05/12 16:38:31 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/05/14 16:05:27 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	checker_read_input(t_list **stack_a, t_list **stack_b, t_vars *m)
 		write(1, "OK\n", 4);
 	else
 		write(1, "KO\n", 4);
-	return (free(m->s), free(m->tr));
+	return ;
 }
 
 int	no_segmentation_fault(t_vars *m )
