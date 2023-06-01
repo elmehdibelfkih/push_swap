@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 07:20:18 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/05/31 02:18:13 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/06/01 05:55:48 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ int	no_segmentation_fault(t_vars *m )
 		return (0);
 	else if (ft_strncmp(m->s, "rrr\n", 5) && (m->sa_n < 2 && m->sb_n < 2))
 		return (0);
-	stack_check(m);
+	else if (m->sa_n < 2 || m->sb_n < 2)
+		stack_check(m);
 	return (1);
 }
 
