@@ -6,7 +6,7 @@
 /*   By: ebelfkih <ebelfkih@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 07:20:18 by ebelfkih          #+#    #+#             */
-/*   Updated: 2023/05/14 16:05:27 by ebelfkih         ###   ########.fr       */
+/*   Updated: 2023/05/31 02:18:13 by ebelfkih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	no_segmentation_fault(t_vars *m )
 		return (0);
 	else if (ft_strncmp(m->s, "sb\n", 5) && m->sb_n < 2)
 		return (0);
-	else if (ft_strncmp(m->s, "ss\n", 5) && (m->sa_n < 2 || m->sb_n < 2))
+	else if (ft_strncmp(m->s, "ss\n", 5) && (m->sa_n < 2 && m->sb_n < 2))
 		return (0);
 	else if (ft_strncmp(m->s, "pa\n", 5) && m->sb_n == 0)
 		return (0);
@@ -48,13 +48,43 @@ int	no_segmentation_fault(t_vars *m )
 		return (0);
 	else if (ft_strncmp(m->s, "rb\n", 5) && m->sb_n < 2)
 		return (0);
-	else if (ft_strncmp(m->s, "rr\n", 5) && (m->sa_n < 2 || m->sb_n < 2))
+	else if (ft_strncmp(m->s, "rr\n", 5) && (m->sa_n < 2 && m->sb_n < 2))
 		return (0);
 	else if (ft_strncmp(m->s, "rra\n", 5) && m->sa_n < 2)
 		return (0);
 	else if (ft_strncmp(m->s, "rrb\n", 5) && m->sb_n < 2)
 		return (0);
-	else if (ft_strncmp(m->s, "rrr\n", 5) && (m->sa_n < 2 || m->sb_n < 2))
+	else if (ft_strncmp(m->s, "rrr\n", 5) && (m->sa_n < 2 && m->sb_n < 2))
 		return (0);
+	stack_check(m);
 	return (1);
+}
+
+void	stack_check(t_vars *m)
+{
+	if (ft_strncmp(m->s, "ss\n", 5))
+	{
+		free(m->tr);
+		if (m->sa_n < 2)
+			m->tr = ft_strdup("sb");
+		else
+			m->tr = ft_strdup("sa");
+	}
+	if (ft_strncmp(m->s, "rr\n", 5))
+	{
+		free(m->tr);
+		if (m->sa_n < 2)
+			m->tr = ft_strdup("rb");
+		else
+			m->tr = ft_strdup("ra");
+	}
+	if (ft_strncmp(m->s, "rrr\n", 5))
+	{
+		free(m->tr);
+		if (m->sa_n < 2)
+			m->tr = ft_strdup("rrb");
+		else
+			m->tr = ft_strdup("rra");
+	}
+	return ;
 }
